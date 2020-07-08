@@ -1,1 +1,1 @@
-export const FIND_POKEMON = 'FIND_POKEMON' //filter
+export const FIND_POKEMON = 'FIND_POKEMON' 

@@ -1,27 +1,25 @@
-import React,{createContext, useState, useEffect} from 'react'
-import axios from 'axios'
+import React,{createContext} from 'react'
+import { usePokemonReducer } from './PokemonReducer'
+import {FIND_POKEMON} from './Actions'
 
 const PokemonContext = createContext()
 
 const PokemonProvider = ({children}) => {
 
-    const [data, setData] = useState({ pokemons:[] })
+    const [state, dispatch] = usePokemonReducer();
+    
+    const { pokemon } = state;
 
-    useEffect(() => {
-        async function getPokemons(){
-           const result = await axios("https://pokeapi.co/api/v2/pokemon?limit=151");
-           setData(result.data);
-           console.log(result.data)
-        }
-        getPokemons()
-        
-     },[]);
+    const findPokemon = (pokemon) => dispatch({ type: FIND_POKEMON, pokemon });
+
+    console.log(pokemon)
 
     return (
-        <PokemonContext.Provider value={data}>
+        <PokemonContext.Provider value={{ pokemon, findPokemon }}>
             {children}
         </PokemonContext.Provider>
     )
 }
 
 export { PokemonContext, PokemonProvider };
+

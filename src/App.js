@@ -1,16 +1,13 @@
 import React from 'react'
-import {HashRouter} from 'react-router-dom'
 import {PokemonProvider} from './Services/Store/PokemonContext'
-import AppHolder from './Components/AppHolder/AppHolder'
+import Home from './Pages/Home'
 
 const App = () => {
 
   return (
-    <HashRouter className="App">
        <PokemonProvider>
-          <AppHolder/>
+          <Home/>
        </PokemonProvider>
-    </HashRouter>
   );
 }
 

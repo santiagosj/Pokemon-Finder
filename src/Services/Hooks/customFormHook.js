@@ -14,7 +14,7 @@ const useFormHook = (callback) => {
 
     const handleInputChange = (e) => {
          e.persist();
-         setInputs(inputs => ({...inputs, [e.target.name]: e.target.value }));
+         setInputs(inputs => ( {...inputs, [e.target.name]: e.target.value } ));
     }
 
     return{
