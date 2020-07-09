@@ -1,7 +1,9 @@
 import React,{useContext, Fragment, useEffect, useState} from 'react'
 import SearchBar from '../Components/SearchBar/SearchBar'
 import PokemonCard from '../Components/PokemonSection/PokemonCard'
+import Share from '../Components/Share/Share'
 import { PokemonContext } from  '../Services/Store/PokemonContext'
+
 import Logo from '../assets/logo.png'
 
 const Home = () => {
@@ -42,6 +44,14 @@ const Home = () => {
             <Fragment> 
                 {pokInStorage !== undefined && <PokemonCard pokemon={pokInStorage}/>}
             </Fragment>
+
+               <hr/>
+        <div className='responsiveFlex'> 
+             <p>Hecho por Santiago Spinetto Jung</p>
+             <Share url={'https://github.com/santiagosj/Pokemon-Finder'}/>
+        </div>
+             
+
         </div>
     )
 }
