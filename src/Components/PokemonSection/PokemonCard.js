@@ -22,7 +22,7 @@ const PokemonCard = ({pokemon}) => {
               </div>
                 
           ):(
-              <p>Result</p>
+              <p>No hay nada en tu historial</p>
           )}
         </>
         
