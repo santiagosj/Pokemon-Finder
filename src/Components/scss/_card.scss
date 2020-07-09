@@ -1,0 +1,43 @@
+.cardWrapper {
+    margin: 0 (-$gap / 2);
+    @include media(sm){
+      display: flex;
+      flex-wrap: wrap;
+    }
+  }
+  
+  .cardItem-wrapper {
+    padding: $gap / 2;
+    @include media(sm){
+      display: flex;
+      flex: 1;
+    }
+  }
+  
+  .cardItem {
+    padding: $gap;
+    text-align: center;
+    @include media(sm){
+      align-items: center;
+    }
+  }
+  
+  .cardItem.box {
+    background-color: white;
+    border-radius: 4px;
+    box-shadow: $box-shadow;
+    padding: $gap 1rem;
+    border-radius: 4px;
+    margin: 20px auto;
+    width: 174px;
+  }
+  
+  .cardItem-wrapper figcaption {
+    margin-bottom: 1rem;
+  }
+  
+  .cardItem-image {
+    max-width: 7.5rem;
+    margin: 0 auto;
+  }
+  

@@ -1,25 +1,47 @@
-import React,{useContext} from 'react'
+import React,{useContext, Fragment, useEffect, useState} from 'react'
 import SearchBar from '../Components/SearchBar/SearchBar'
 import PokemonCard from '../Components/PokemonSection/PokemonCard'
 import { PokemonContext } from  '../Services/Store/PokemonContext'
+import Logo from '../assets/logo.png'
 
 const Home = () => {
-
+ 
     const { pokemon } = useContext(PokemonContext)
 
-    let pokInfo = Object.values(pokemon).filter(item => typeof item === "object").map((poke,i) => (
-      <div key={i}>
-        {poke !== undefined && <PokemonCard pokemon={poke}/>}
-      </div>
-      )  
-     )
+    const [pokInStorage, setPokInStorage ] = useState()
+
+    useEffect(()=>{
+
+        const storageValue = localStorage.getItem('pokemons')
+        
+        setPokInStorage(JSON.parse(storageValue))
+
+    },[])
+
+    let pokInfo = Object.values(pokemon).filter(item => typeof item === "object")
+
+   console.log(pokemon)
 
     return (
-        <div>
-            <h1>Pokemon Finder</h1>
+        <div className={`siteContent`}>
+
+            <h1> <img src={Logo} style={{width:'250px'}} alt='Logo'/> Finder</h1>
+
             <SearchBar />
+        
             <h2>Resultados de la búsqueda</h2>
-            {pokInfo}
+
+            <Fragment> 
+                  {
+                    pokInfo.map( poke => (poke !== null ? <PokemonCard key={poke.id} pokemon={poke}/> : <h3 key={1}>Ese Pokemon no existe</h3> )  
+                  )}
+            </Fragment>
+
+            <h2>Último pokemon buscado</h2>
+
+            <Fragment> 
+                {pokInStorage !== undefined && <PokemonCard pokemon={pokInStorage}/>}
+            </Fragment>
         </div>
     )
 }

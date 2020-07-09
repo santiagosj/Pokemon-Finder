@@ -1,25 +1,34 @@
-import React,{createContext} from 'react'
+import React,{createContext, useEffect} from 'react'
 import { usePokemonReducer } from './PokemonReducer'
 import {FIND_POKEMON} from './Actions'
 
-const PokemonContext = createContext()
+export const PokemonContext = createContext()
 
 const PokemonProvider = ({children}) => {
-
-    const [state, dispatch] = usePokemonReducer();
     
+    const [state, dispatch] = usePokemonReducer();
+
     const { pokemon } = state;
 
-    const findPokemon = (pokemon) => dispatch({ type: FIND_POKEMON, pokemon });
+    const findPokemon = (pokemon) => dispatch({ type: FIND_POKEMON, pokemon})
 
-    console.log(pokemon)
+    useEffect(() => {
+        if(pokemon.pokemon !== undefined){
+            localStorage.setItem('pokemons', JSON.stringify(pokemon.pokemon));
+        }
+    }, [pokemon]);
+
+    const providerValues = {
+        pokemon,
+        findPokemon,
+    }
 
     return (
-        <PokemonContext.Provider value={{ pokemon, findPokemon }}>
+        <PokemonContext.Provider value={providerValues}>
             {children}
         </PokemonContext.Provider>
     )
 }
 
-export { PokemonContext, PokemonProvider };
+export default  PokemonProvider;
 

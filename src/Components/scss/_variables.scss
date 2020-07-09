@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700&display=swap');
+
+$max-width: 1024px;
+$gap: 1.5rem;
+$border-radius: 4px;
+
+// Colors
+$color-yellow: rgb(255, 255, 81);
+$color-sky: #EFF3FB;
+$color-red: #ff1616;
+$color-lilac: #D4D6FE;
+$color-grey: #b4b4b4;
+
+/* Theme variables */
+$bg-primary: rgb(36, 128, 200);
+$bg-secondary: #F2F2F2;
+$text-primary: #000;
+$text-secondary: rgba(0,0,0,0.5);
+
+$box-shadow: 12px 10px 3px rgba($bg-primary, 0.2);
+
+// Global breakpoints 
+// "xs": 400,
+// "sm": 600,
+// "md": 960, 
+// "lg": 1280,
+// "xl": 1920
+
+@mixin media($size){
+    @if $size == xs {
+      @media screen and (min-width:400px) { @content; }
+    }
+    @else if $size == maxXs {
+      @media screen and (max-width:400px) { @content; }
+    }
+    @else if $size == sm {
+      @media screen and (min-width:600px){ @content; }
+    }
+    @else if $size == md {
+      @media screen and (min-width:960px){ @content; }
+    }
+    @else if $size == mdMax {
+      @media screen and (max-width:960px){ @content; }
+    }
+    @else if $size == lg {
+      @media screen and (min-width:1280px){ @content; }
+    }
+    @else if $size == xl {
+      @media screen and (min-width:1920px){ @content; }
+    }
+  }

@@ -1,0 +1,33 @@
+a {
+    color: $color-yellow;
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  
+  .button {
+    border-radius: $border-radius;
+    color: rgb(255, 255, 255);
+    display: inline-block;
+    font-weight: 600;
+    margin-bottom: .25rem;
+    margin-right: .5rem;
+    margin-top: .25rem;
+  }
+  
+  .button {
+    background-color: $color-grey;
+    padding: .5rem 3rem;
+    &:hover{
+        cursor: pointer;
+    }
+  }
+  
+  .button.primary {
+    background-color: #a4b8c9d1;;
+    color: black;
+  }
+  
+
+  

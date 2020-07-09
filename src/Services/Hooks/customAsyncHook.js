@@ -1,4 +1,4 @@
-import {useEffect, useState,useContext} from 'react'
+import {useEffect, useState, useContext} from 'react'
 import { PokemonContext } from '../../Services/Store/PokemonContext'
 import {FIND_POKEMON} from '../../Services/Store/Actions'
 import axios from 'axios'
@@ -30,6 +30,8 @@ const useAsyncHook = (id) => {
         } catch (error) {
 
           setLoading('null');
+
+          findPokemon({type:FIND_POKEMON, pokemon:null });
 
         }
 

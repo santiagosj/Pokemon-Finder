@@ -4,15 +4,15 @@ import useAsyncHook from '../../Services/Hooks/customAsyncHook'
 
 const SearchBar = () => {
 
-    //=====================================================================
+//=====================================================================
 
     const [search, setSearch] = useState('')
 
-    const [result] = useAsyncHook(search);
+    useAsyncHook(search);
 
     const handleFormSubmit = () => {
         
-            let pokId = Object.values(inputs)
+             let pokId = Object.values(inputs).join().toLowerCase()
 
              setSearch(pokId)
                          
@@ -32,9 +32,13 @@ const SearchBar = () => {
                 value={inputs.pokemon || ''}
                 onChange={handleInputChange} 
                 required
+                className={`input`}
+                placeholder='ingrese el pokemon a buscar'
              />
-            <input type="submit" value="Buscar Pokemon" />
+            <input className={`button primary`} type="submit" value="🔍 Buscar Pokemon" /> 
+        
        </form>
+       
     )
 }
 

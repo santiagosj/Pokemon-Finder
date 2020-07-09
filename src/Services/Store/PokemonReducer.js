@@ -4,7 +4,7 @@ import {FIND_POKEMON} from './Actions'
 const pokemonReducer = (action, state) => {
     switch(action.type){
         case FIND_POKEMON:
-            return {...state}
+            return  {...state}
         default:
             return state;
     }
