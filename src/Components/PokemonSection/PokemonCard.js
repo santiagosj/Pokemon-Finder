@@ -2,10 +2,9 @@ import React from 'react'
 
 const PokemonCard = ({pokemon}) => {
     return (
-        
         <>
           {pokemon !== null && pokemon !== undefined ? (
-              <div>
+              <>
                       <h4>id:[{pokemon.id}] - {`Nombre: [${pokemon.name}]`}</h4>
                             
                       <div className={`cardWrapper`}>
@@ -19,10 +18,10 @@ const PokemonCard = ({pokemon}) => {
                                 </div>
                                 
                        </div>
-              </div>
+              </>
                 
           ):(
-              <p>No hay nada en tu historial</p>
+              <p>No hay nada en tu historial de busqueda</p>
           )}
         </>
         

@@ -13,7 +13,7 @@ const PokemonProvider = ({children}) => {
     const findPokemon = (pokemon) => dispatch({ type: FIND_POKEMON, pokemon})
 
     useEffect(() => {
-        if(pokemon.pokemon !== undefined){
+        if(pokemon.pokemon !== undefined && pokemon.pokemon !== null){
             localStorage.setItem('pokemonInStorage', JSON.stringify(pokemon.pokemon));
         }
     }, [pokemon]);
