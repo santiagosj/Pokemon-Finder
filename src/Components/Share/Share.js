@@ -5,7 +5,7 @@ const Share = ({url}) => {
     return (
         <div className='share'>
             <FaGithubSquare/>
-            <a href={`${url}`} alt='link' target="_blank">Código</a>
+            <a href={url} alt='link' target="_blank">Código</a>
         </div>
     )
 }

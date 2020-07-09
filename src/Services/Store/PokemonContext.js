@@ -14,7 +14,7 @@ const PokemonProvider = ({children}) => {
 
     useEffect(() => {
         if(pokemon.pokemon !== undefined){
-            localStorage.setItem('pokemons', JSON.stringify(pokemon.pokemon));
+            localStorage.setItem('pokemonInStorage', JSON.stringify(pokemon.pokemon));
         }
     }, [pokemon]);
 
