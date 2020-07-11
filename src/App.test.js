@@ -1,9 +1,15 @@
 import React from 'react';
-import { render } from '@testing-library/react';
-import App from './App';
+import App from './App'
+import Home from './Pages/Home'
+import { shallow } from 'enzyme'
 
-test('renders learn react link', () => {
-  const { getByText } = render(<App />);
-  const linkElement = getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
-});
+it('simple UI test de App.js usando shallow',()=>{
+  const wrapper = shallow(<App/>) 
+  const home = <Home/>
+
+  expect(wrapper.contains(home)).toBe(true)
+ 
+})
+
+
+

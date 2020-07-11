@@ -16,7 +16,7 @@ const Home = () => {
     return (
         <div className={`siteContent`}>
 
-            <h1> <img src={Logo} style={{width:'250px'}} alt='Logo'/> Finder</h1>
+            <h1 className="title"> <img src={Logo} style={{width:'250px'}} alt='Logo'/> Finder</h1>
 
             <SearchBar />
 

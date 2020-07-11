@@ -1,6 +1,7 @@
 import React from 'react'
 
 const PokemonCard = ({pokemon}) => {
+    
     return (
         <>
           {pokemon !== null && pokemon !== undefined ? (
@@ -10,18 +11,18 @@ const PokemonCard = ({pokemon}) => {
                       <div className={`cardWrapper`}>
             
                                 <div className={`cardItem box`}>
-                                    <img className={`cardItem-image`} src={pokemon.sprites.back_default} /> 
+                                    <img id="img-back" className={`cardItem-image`} src={pokemon.sprites.back_default} /> 
                                 </div>
             
                                 <div className={`cardItem box`}>
-                                    <img className={`cardItem-image`} src={pokemon.sprites.front_default} />
+                                    <img id="img-front" className={`cardItem-image`} src={pokemon.sprites.front_default} />
                                 </div>
                                 
                        </div>
               </>
                 
           ):(
-              <p>No hay nada en tu historial de busqueda</p>
+              <p className='empty'>No hay nada en tu historial de busqueda</p>
           )}
         </>
         

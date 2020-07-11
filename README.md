@@ -4,13 +4,21 @@ Aplicación de prueba con [pokeAPI](https://pokeapi.co/) y [ReactJS](https://rea
 
 ## Instalación ⚡
 
-1. Clonar este repo ```git clone https://github.com/santiagosj/Pokemon-Finder.git ``` si tenes git instalado. Si no descargarlo en zip. 
-2. Entrar con cmd en el root del repo e instalar dependencias ```npm install ```
-3. Ejecutar el servidor local en localhost:3000   ```npm start ```
+1.  ```git clone https://github.com/santiagosj/Pokemon-Finder.git ``` 
+2.  cd en el repo ```npm install ```
+3. ```npm start ```
 
+#### Dependencias.
 
+* [axios](https://www.npmjs.com/package/axios) 
+* [dotenv](https://www.npmjs.com/package/dotenv)
 
-## Arquitectura general 🏡
+#### Dev-dependencias
+* [node-sass](https://www.npmjs.com/package/node-sass)
+* [enzyme](https://www.npmjs.com/package/enzyme)
+* [enzyme-adapter-react-16](https://www.npmjs.com/package/enzyme-adapter-react-16)
+* [react-test-renderer](https://www.npmjs.com/package/react-test-renderer)
+## Estructura general 🏡
 
 ```
 src/
@@ -47,8 +55,7 @@ src/
 ```
 
 ## Deploy 🚀
-Usé firebase para hacer el deploy. Puede correr en local sin la correspondiente configuración de firebase.
-👉[Demo](https://busca-pokemon.web.app)
+Usé [firebase](https://firebase.google.com/?hl=es) para hacer el deploy. Puede correr en local sin la correspondiente configuración de firebase. 
 
 ## Objetivo 🎯
 Traer un pokemón específico haciendo un call al api [PokeApi](https://pokeapi.co/)
@@ -56,8 +63,18 @@ creando una barra de Search 🔍 con un botón que ejecute el evento que dispara
 
 ## Aproach ☕
 
+#### Administración del Estado de la App
+Configuré un estado general utilizando Context, para proveer el estado a toda la aplicación, sin necesidad de pasarlo a través de propiedades entre componentes, lo cual a medida de que el proyecto tome nuevos requerimientos, volvería un pesadilla de herencia el mantenimiento del código. Modifico este estado despachando una acción ```FIND_POKEMON```en el evento ```handleSubmit``` desde el componente ```<SearchBar/>```, ayudandome de dos custom hooks, ```useCustomFormHook``` y ```useAsyncHook```. El componente Home se encarga de escuchar este estado a traves del ```{PokemonContext}``` y renderiza un componente ```<PokemonCard pokemon={pokemon}/>``` que recibe dentro de una propiedad 'pokemon' el pokemon(objeto) a renderizar.
 
+#### useCustomFormHook
+Este custom hook escucha los cambios los inputs de cada formulario que pueda llegar a necesitar en la app. Y la idea principal es agarrar las tareas repetitivas que conlleva armar la lógica de un formulario y reutilizarla en otros formularios.
 
-## License
-[MIT](https://choosealicense.com/licenses/mit/)
+#### useAsyncHook
+Este Hook se encarga de pedir de manera asíncrona, la data, y actualiza el estado en context despachando en el la acción definida en el Store de la app.
 
+##### Automation Testing - Unit Testings
+Configuración -> Enzyme + Jest  ```npm test -a``` 
+
+##### Styles
+
+Configuración básica de un sistema SASS implementando @mixins, variables y breakpoints, centralizando las hojas de estilo.
