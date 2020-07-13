@@ -3,7 +3,9 @@ import PokemonCard from '../PokemonCard'
 import { render, shallow, mount } from 'enzyme'
 
 describe('PokemonCard Test Suite', () => {
+    
     //objeto hardcodeado.
+
     const poke = {
         name:'pikachu',
         id:25,
@@ -14,6 +16,7 @@ describe('PokemonCard Test Suite', () => {
     }
 
     it('Imagenes del pokemon buscado', ()=> {
+
             const wrapper = render(<PokemonCard pokemon={poke}/>)
 
             expect(wrapper.find('#img-back').length).toEqual(1)
@@ -22,6 +25,7 @@ describe('PokemonCard Test Suite', () => {
     })
 
     it('UI de PokemonCard',() => {
+        
         const wrapper = shallow(<PokemonCard pokemon={poke}/>)
 
         const imgWrapper = <div className={`cardWrapper`}>
@@ -44,4 +48,5 @@ describe('PokemonCard Test Suite', () => {
         if(poke === null && poke === undefined)  expect(wrapper.find('.empty').exists()).toBe(true);
        
     })
+    
 })

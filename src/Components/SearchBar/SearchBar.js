@@ -9,11 +9,8 @@ const SearchBar = () => {
     useAsyncHook(search);
 
     const handleFormSubmit = () => {
-        
-             let pokId = Object.values(inputs).join().toLowerCase()
-
-             setSearch(pokId)
-                         
+             let pokId = Object.values(inputs).join().toLowerCase() 
+             setSearch(pokId)               
              document.forms[0].reset()
     }
 
@@ -21,10 +18,8 @@ const SearchBar = () => {
 
      return (
         
-        <form onSubmit={handleSubmit} className="searchForm" data-testid="searchForm">
-
-            <label htmlFor="pokemon">Pokemon:</label>
-            
+       <form onSubmit={handleSubmit} className="searchForm" data-testid="searchForm">
+  
              <input 
                 id='searchBar'
                 type="text" 
