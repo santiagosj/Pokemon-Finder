@@ -39,6 +39,7 @@ describe('PokemonCard Test Suite', () => {
                           </div>
 
         expect(wrapper.contains(imgWrapper)).toBeTruthy()
+        
     })
 
     it('Si el pokemon en storage es null o undefined',() => {

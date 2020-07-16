@@ -1,11 +1,11 @@
 import React,{ useState } from 'react'
-import useCustomFormHook from '../../Services/Hooks/customFormHook'
+import useFormHook from '../../Services/Hooks/customFormHook'
 import useAsyncHook from '../../Services/Hooks/customAsyncHook'
 
 const SearchBar = () => {
 
-    const [search, setSearch] = useState('')
-
+    const [search, setSearch] = useState('') 
+    
     useAsyncHook(search);
 
     const handleFormSubmit = () => {
@@ -14,32 +14,35 @@ const SearchBar = () => {
              document.forms[0].reset()
     }
 
-    const { inputs, handleSubmit, handleInputChange } = useCustomFormHook(handleFormSubmit)
+    const { inputs, handleSubmit, handleInputChange } = useFormHook(handleFormSubmit)
+
+    console.log( `Inputs State: ${inputs.pokemon}, Search State: ${search}`)
 
      return (
         
-       <form onSubmit={handleSubmit} className="searchForm" data-testid="searchForm">
-  
-             <input 
-                id='searchBar'
-                type="text" 
-                name="pokemon" 
-                value={inputs.pokemon || ''}
-                onChange={handleInputChange} 
-                required
-                className={`input`}
-                placeholder='ingrese el pokemon a buscar'
-             />
+               <form onSubmit={handleSubmit} className="searchForm" data-testid="searchForm">
+         
+                     <input 
+                        data-testid="searchInput"
+                        id="searchBar"
+                        type="text" 
+                        name="pokemon" 
+                        value={inputs.pokemon || ''} 
+                        onChange={handleInputChange} 
+                        required
+                        className={`input`}
+                        placeholder="ingrese el pokemon a buscar"
+                     />
 
-             <input 
-                className={`button primary`} 
-                type="submit" 
-                value="🔍 Buscar Pokemon" 
-                id='search-button'
-             /> 
+                     <input 
+                        data-testid="searchButton"
+                        className={`button primary`} 
+                        type="submit" 
+                        value="🔍 Buscar Pokemon" 
+                        id="search-button"
+                     /> 
 
-       </form>
-       
+               </form>
     )
 }
 
