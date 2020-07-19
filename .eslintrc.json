@@ -19,6 +19,7 @@
         "allowReferrer": true,
         "enforceDynamicLinks": "never"
       }
-    ]
+    ],
+    "allowTemplateLiterals": true
   }
 }
