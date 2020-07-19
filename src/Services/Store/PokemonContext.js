@@ -1,10 +1,12 @@
+/* eslint-disable react/prop-types */
 import React,{createContext, useEffect} from 'react'
 import { usePokemonReducer } from './PokemonReducer'
 import {FIND_POKEMON} from './Actions'
+import PropTypes from 'prop-types'
 
 export const PokemonContext = createContext() //genero el context
 
-const PokemonProvider = ({children}) => {
+const PokemonProvider = ({ children }) => {
     
     const [ state, dispatch ] = usePokemonReducer(); //implementación de mi reducer. 
 

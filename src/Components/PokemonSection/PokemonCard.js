@@ -1,6 +1,7 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
-const PokemonCard = ({pokemon}) => {
+const PokemonCard = ({ pokemon }) => {
     
     return (
         <>
@@ -27,6 +28,10 @@ const PokemonCard = ({pokemon}) => {
         </>
         
     )
+}
+
+PokemonCard.propTypes = {
+    pokemon: PropTypes.object.isRequired
 }
 
 export default PokemonCard

@@ -14,12 +14,12 @@ const useAsyncHook = (id) => {
       async function getPokemon() {
       // 3 - estructura imperativa try/catch 
         try {
-
            setLoading('true'); //setea estado de carga a true
           //declaración en memoria de constante response, con el endpoint de la petición con axios
            const response = await axios(
              `https://pokeapi.co/api/v2/pokemon/${id}`
            );
+
            findPokemon({type:FIND_POKEMON, pokemon:response.data }); //despacha la acción con su correspondiente String de acción y data(payload)
 
         } catch (error) {
@@ -36,7 +36,7 @@ const useAsyncHook = (id) => {
 
     }, [id]); //escucha de manera constante el estado del parametro pasado a la función principal
      
-    return [ loading ]; //retorna el estado de carga.
+    return  loading ; //retorna el estado de carga.
 
   }
 
