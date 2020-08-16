@@ -12,7 +12,7 @@ const Home = () => {
     (item) => typeof item === "object"
   );
 
-  console.log(pokemon);
+  // console.log(pokemon);
 
   return (
     <div className={`siteContent`}>

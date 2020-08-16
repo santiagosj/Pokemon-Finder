@@ -3,7 +3,7 @@ import { PokemonContext } from '../../Services/Store/PokemonContext'
 import {FIND_POKEMON} from '../../Services/Store/Actions'
 import axios from 'axios'
 
-const useAsyncHook = (id) => {
+const useAsyncHook = (name) => {
 
     const [loading, setLoading] = useState('false'); //estado inicial de carga
 
@@ -17,7 +17,7 @@ const useAsyncHook = (id) => {
            setLoading('true'); //setea estado de carga a true
           //declaración en memoria de constante response, con el endpoint de la petición con axios
            const response = await axios(
-             `https://pokeapi.co/api/v2/pokemon/${id}`
+             `https://pokeapi.co/api/v2/pokemon/${name}`
            );
 
            findPokemon({type:FIND_POKEMON, pokemon:response.data }); //despacha la acción con su correspondiente String de acción y data(payload)
@@ -30,11 +30,11 @@ const useAsyncHook = (id) => {
 
       }
       //si el parametro que recibe el hook no es un string vacío genera la llamada a la función con el proceso anteriormente descripto.   
-      if (id !== "") {
+      if (name !== "") {
          getPokemon();
       }
 
-    }, [id]); //escucha de manera constante el estado del parametro pasado a la función principal
+    }, [name]); //escucha de manera constante el estado del parametro pasado a la función principal
      
     return  loading ; //retorna el estado de carga.
 
